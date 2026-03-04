@@ -9,10 +9,11 @@ interface ResultsRevealProps {
   groupScores: Record<string, { scoreA: number; scoreB: number }>;
   knockoutPredictions: Record<string, 'A' | 'B'>;
   finalDetails: AppState['finalDetails'];
+  onReset: () => void;
   key?: React.Key;
 }
 
-export default function ResultsReveal({ groupScores, knockoutPredictions, finalDetails }: ResultsRevealProps) {
+export default function ResultsReveal({ groupScores, knockoutPredictions, finalDetails, onReset }: ResultsRevealProps) {
   const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
 
   const knockoutMatches = useMemo(() => {
@@ -177,6 +178,16 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
             </div>
           </div>
         </section>
+
+        {/* Reset Button */}
+        <div className="pt-4 pb-12">
+          <button
+            onClick={onReset}
+            className="w-full bg-white border-2 border-slate-200 text-slate-600 font-bold py-4 rounded-2xl hover:bg-slate-50 transition-colors shadow-sm flex items-center justify-center space-x-2"
+          >
+            <span>Start New Prediction</span>
+          </button>
+        </div>
       </div>
     </motion.div>
   );

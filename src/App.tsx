@@ -19,18 +19,6 @@ export default function App() {
     finalDetails: {},
   });
 
-  // Handle back button or refresh (optional, but good for POC)
-  useEffect(() => {
-    const saved = localStorage.getItem('wc2026_prediction_state');
-    if (saved) {
-      setState(JSON.parse(saved));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('wc2026_prediction_state', JSON.stringify(state));
-  }, [state]);
-
   const handleStart = () => {
     setState(prev => ({ ...prev, screen: 'group-stage' }));
   };
@@ -84,6 +72,16 @@ export default function App() {
   // In a real app, this would be server-driven
   const toggleResults = () => {
     setState(prev => ({ ...prev, screen: prev.screen === 'results' ? 'dashboard' : 'results' }));
+  };
+
+  const handleReset = () => {
+    localStorage.removeItem('wc2026_prediction_state');
+    setState({
+      screen: 'dashboard',
+      groupScores: {},
+      knockoutPredictions: {},
+      finalDetails: {},
+    });
   };
 
   return (
@@ -218,6 +216,7 @@ export default function App() {
             groupScores={state.groupScores}
             knockoutPredictions={state.knockoutPredictions}
             finalDetails={state.finalDetails}
+            onReset={handleReset}
           />
         )}
       </AnimatePresence>
