@@ -212,7 +212,7 @@ function MatchCard({
       {!score && (
         <button
           onClick={() => onPredict(sA, sB)}
-          className="w-full bg-white border border-slate-200 text-slate-600 font-bold py-2 rounded-xl text-xs uppercase tracking-widest hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all shadow-sm"
+          className="w-full bg-indigo-600 border border-indigo-600 text-white font-bold py-2 rounded-xl text-xs uppercase tracking-widest transition-all shadow-sm shadow-indigo-100 active:scale-[0.98]"
         >
           Lock Result
         </button>

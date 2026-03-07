@@ -49,4 +49,6 @@ export type TeamStanding = {
   lost: number;
   points: number;
   goalDiff: number;
+  goalsScored: number;
+  fairPlayPoints: number;
 };
