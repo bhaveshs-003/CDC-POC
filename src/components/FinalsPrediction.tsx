@@ -48,7 +48,7 @@ export default function FinalsPrediction({
           <div className="space-y-8">
             <div className="text-center space-y-2">
               <h3 className="text-xl font-black text-slate-900">What will be the final score for {teamA.name}?</h3>
-              <p className="text-4xl font-black text-indigo-600">{value ?? 0}</p>
+              <p className="text-4xl font-black text-cdc-blue">{value ?? 0}</p>
             </div>
             <input
               type="range"
@@ -56,7 +56,7 @@ export default function FinalsPrediction({
               max="10"
               value={value ?? 0}
               onChange={(e) => onUpdate(parseInt(e.target.value))}
-              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cdc-blue"
             />
             <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
               <span>0 Goals</span>
@@ -69,7 +69,7 @@ export default function FinalsPrediction({
           <div className="space-y-8">
             <div className="text-center space-y-2">
               <h3 className="text-xl font-black text-slate-900">What will be the final score for {teamB.name}?</h3>
-              <p className="text-4xl font-black text-indigo-600">{value ?? 0}</p>
+              <p className="text-4xl font-black text-cdc-blue">{value ?? 0}</p>
             </div>
             <input
               type="range"
@@ -77,7 +77,7 @@ export default function FinalsPrediction({
               max="10"
               value={value ?? 0}
               onChange={(e) => onUpdate(parseInt(e.target.value))}
-              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cdc-blue"
             />
             <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
               <span>0 Goals</span>
@@ -104,7 +104,7 @@ export default function FinalsPrediction({
                 onClick={() => onUpdate('None')}
                 className={`w-full p-4 rounded-2xl border-2 transition-all font-bold ${
                   value === 'None'
-                    ? 'border-indigo-600 bg-indigo-50 text-indigo-600'
+                    ? 'border-cdc-blue bg-cdc-blue/5 text-cdc-blue'
                     : 'border-slate-100 bg-white text-slate-600'
                 }`}
               >
@@ -120,7 +120,7 @@ export default function FinalsPrediction({
               <h3 className="text-xl font-black text-slate-900">How many yellow cards will be given in the match?</h3>
               <div className="flex items-center justify-center space-x-3">
                 <Cards className="w-8 h-8 text-amber-400" />
-                <p className="text-4xl font-black text-indigo-600">{value ?? 0}</p>
+                <p className="text-4xl font-black text-cdc-blue">{value ?? 0}</p>
               </div>
             </div>
             <input
@@ -129,7 +129,7 @@ export default function FinalsPrediction({
               max="15"
               value={value ?? 0}
               onChange={(e) => onUpdate(parseInt(e.target.value))}
-              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-cdc-blue"
             />
             <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
               <span>0 Cards</span>
@@ -163,7 +163,7 @@ export default function FinalsPrediction({
         <button
           disabled={value === undefined}
           onClick={onNext}
-          className="w-full bg-indigo-600 disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-100 tap-target transition-all flex items-center justify-center space-x-2"
+          className="w-full bg-cdc-blue disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-cdc-blue/20 tap-target transition-all flex items-center justify-center space-x-2"
         >
           <span>Continue</span>
           <ChevronRight className="w-5 h-5" />
@@ -178,11 +178,11 @@ function TeamOption({ team, isSelected, onClick }: { team: Team; isSelected: boo
     <button
       onClick={onClick}
       className={`flex flex-col items-center p-6 rounded-3xl border-2 transition-all space-y-3 ${
-        isSelected ? 'border-indigo-600 bg-indigo-50' : 'border-white bg-white shadow-sm'
+        isSelected ? 'border-cdc-blue bg-cdc-blue/5' : 'border-white bg-white shadow-sm'
       }`}
     >
       <span className="text-5xl">{team.flag}</span>
-      <span className={`font-bold text-center ${isSelected ? 'text-indigo-600' : 'text-slate-700'}`}>
+      <span className={`font-bold text-center ${isSelected ? 'text-cdc-blue' : 'text-slate-700'}`}>
         {team.name}
       </span>
     </button>
@@ -194,11 +194,11 @@ function TeamOptionHorizontal({ team, isSelected, onClick }: { team: Team; isSel
     <button
       onClick={onClick}
       className={`flex items-center p-4 rounded-2xl border-2 transition-all space-x-4 ${
-        isSelected ? 'border-indigo-600 bg-indigo-50' : 'border-slate-100 bg-white'
+        isSelected ? 'border-cdc-blue bg-cdc-blue/5' : 'border-slate-100 bg-white'
       }`}
     >
       <span className="text-2xl">{team.flag}</span>
-      <span className={`font-bold ${isSelected ? 'text-indigo-600' : 'text-slate-700'}`}>
+      <span className={`font-bold ${isSelected ? 'text-cdc-blue' : 'text-slate-700'}`}>
         {team.name}
       </span>
     </button>

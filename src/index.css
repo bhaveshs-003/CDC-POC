@@ -3,12 +3,14 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --radius-card: 16px;
-  --color-primary: var(--color-indigo-600);
+  --color-cdc-blue: #3B448C;
+  --color-cdc-red: #D22027;
+  --color-primary: var(--color-cdc-blue);
   --color-primary-foreground: var(--color-white);
   --color-secondary: var(--color-slate-100);
   --color-secondary-foreground: var(--color-slate-900);
   --color-muted: var(--color-slate-500);
-  --color-accent: var(--color-emerald-500);
+  --color-accent: var(--color-cdc-red);
 }
 
 @layer base {

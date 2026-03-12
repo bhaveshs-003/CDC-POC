@@ -28,7 +28,7 @@ export type KnockoutMatch = {
 };
 
 export type AppState = {
-  screen: 'dashboard' | 'group-stage' | 'r32' | 'r16' | 'qf' | 'sf' | 'final-winner' | 'final-score-a' | 'final-score-b' | 'final-first-goal' | 'final-yellow-cards' | 'review' | 'waiting' | 'results';
+  screen: 'dashboard' | 'splash' | 'group-stage' | 'group-summary' | 'group-splash' | 'r32' | 'r16' | 'qf' | 'sf' | 'final-winner' | 'final-score-a' | 'final-score-b' | 'final-first-goal' | 'final-yellow-cards' | 'review' | 'waiting' | 'results';
   groupScores: Record<string, { scoreA: number; scoreB: number }>;
   knockoutPredictions: Record<string, 'A' | 'B'>;
   finalDetails: {

@@ -7,6 +7,9 @@ import ReviewConfirm from './components/ReviewConfirm';
 import WaitingScreen from './components/WaitingScreen';
 import ResultsReveal from './components/ResultsReveal';
 import FinalsPrediction from './components/FinalsPrediction';
+import SplashScreen from './components/SplashScreen';
+import GroupSummary from './components/GroupSummary';
+import TransitionSplash from './components/TransitionSplash';
 import { AppState } from './types';
 import { GROUPS } from './constants';
 import { getAdvancingTeams, generateKnockoutBracket } from './utils/tournament';
@@ -20,6 +23,10 @@ export default function App() {
   });
 
   const handleStart = () => {
+    setState(prev => ({ ...prev, screen: 'splash' }));
+  };
+
+  const handleSplashComplete = () => {
     setState(prev => ({ ...prev, screen: 'group-stage' }));
   };
 
@@ -28,6 +35,19 @@ export default function App() {
     setState(prev => ({
       ...prev,
       groupScores: { ...prev.groupScores, [matchId]: { scoreA, scoreB } }
+    }));
+  };
+
+  const handleSkipGroups = () => {
+    const allScores: Record<string, { scoreA: number; scoreB: number }> = {};
+    GROUPS.forEach(group => {
+      group.matches.forEach(match => {
+        allScores[match.id] = { scoreA: 0, scoreB: 0 };
+      });
+    });
+    setState(prev => ({
+      ...prev,
+      groupScores: allScores
     }));
   };
 
@@ -90,12 +110,31 @@ export default function App() {
         {state.screen === 'dashboard' && (
           <Dashboard key="dashboard" onStart={handleStart} />
         )}
+        {state.screen === 'splash' && (
+          <SplashScreen key="splash" onComplete={handleSplashComplete} />
+        )}
         {state.screen === 'group-stage' && (
           <GroupStage
             key="group-stage"
             scores={state.groupScores}
             onPredict={handleGroupPredict}
-            onContinue={() => setState(prev => ({ ...prev, screen: 'r32' }))}
+            onSkip={handleSkipGroups}
+            onContinue={() => setState(prev => ({ ...prev, screen: 'group-summary' }))}
+          />
+        )}
+        {state.screen === 'group-summary' && (
+          <GroupSummary
+            key="group-summary"
+            groupScores={state.groupScores}
+            onContinue={() => setState(prev => ({ ...prev, screen: 'group-splash' }))}
+          />
+        )}
+        {state.screen === 'group-splash' && (
+          <TransitionSplash
+            key="group-splash"
+            title="Level 1 Completed"
+            subtitle="let's wait for the 32 teams"
+            onComplete={() => setState(prev => ({ ...prev, screen: 'r32' }))}
           />
         )}
         {state.screen === 'r32' && (

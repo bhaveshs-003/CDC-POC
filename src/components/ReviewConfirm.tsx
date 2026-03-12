@@ -57,7 +57,7 @@ export default function ReviewConfirm({ groupScores, knockoutPredictions, finalD
                   </div>
                   <span className="font-bold text-slate-700">{group.name}</span>
                 </div>
-                <div className="flex items-center text-emerald-500 space-x-1">
+                <div className="flex items-center text-cdc-red space-x-1">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="text-xs font-bold">Complete</span>
                 </div>
@@ -80,7 +80,7 @@ export default function ReviewConfirm({ groupScores, knockoutPredictions, finalD
                       <span className="text-sm font-bold text-slate-700">{match.winner?.name}</span>
                     </div>
                   </div>
-                  <div className="text-indigo-600">
+                  <div className="text-cdc-blue">
                     <Trophy className="w-4 h-4" />
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export default function ReviewConfirm({ groupScores, knockoutPredictions, finalD
         <section className="space-y-3">
           <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 px-2">The Grand Final</h3>
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-            <div className="bg-indigo-600 p-4 text-white">
+            <div className="bg-cdc-blue p-4 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex flex-col items-center">
                   <span className="text-3xl">{finalMatch?.teamA?.flag}</span>
@@ -113,7 +113,7 @@ export default function ReviewConfirm({ groupScores, knockoutPredictions, finalD
               <div className="flex justify-between items-center pt-0">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Champion</span>
                 <div className="flex items-center space-x-2">
-                  <Trophy className="w-4 h-4 text-amber-500" />
+                  <Trophy className="w-4 h-4 text-cdc-red" />
                   <span className="text-sm font-black text-slate-900">
                     {finalDetails.winner === 'A' ? finalMatch?.teamA?.name : finalMatch?.teamB?.name}
                   </span>
@@ -138,9 +138,9 @@ export default function ReviewConfirm({ groupScores, knockoutPredictions, finalD
         </section>
 
         {/* Warning */}
-        <div className="bg-amber-50 rounded-2xl p-5 border border-amber-100 flex items-start space-x-4">
-          <AlertTriangle className="text-amber-500 w-5 h-5 shrink-0" />
-          <p className="text-sm text-amber-900 font-medium leading-relaxed">
+        <div className="bg-cdc-red/5 rounded-2xl p-5 border border-cdc-red/10 flex items-start space-x-4">
+          <AlertTriangle className="text-cdc-red w-5 h-5 shrink-0" />
+          <p className="text-sm text-cdc-red/80 font-medium leading-relaxed">
             Once submitted, your predictions cannot be edited. Results will be revealed after the tournament concludes.
           </p>
         </div>

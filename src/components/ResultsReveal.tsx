@@ -42,7 +42,7 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="bg-indigo-600 rounded-3xl p-8 text-white shadow-xl shadow-indigo-200 relative overflow-hidden"
+          className="bg-cdc-blue rounded-3xl p-8 text-white shadow-xl shadow-cdc-blue/20 relative overflow-hidden"
         >
           <div className="relative z-10 space-y-4">
             <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md">
@@ -52,7 +52,7 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
               <h3 className="text-3xl font-black tracking-tight leading-tight">
                 {MOCK_RESULTS.correctCount} out of {MOCK_RESULTS.totalCount}
               </h3>
-              <p className="text-indigo-100 font-medium">Matches predicted correctly</p>
+              <p className="text-cdc-blue/10 font-medium">Matches predicted correctly</p>
             </div>
           </div>
           <div className="absolute -right-8 -bottom-8 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
@@ -93,7 +93,7 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
                             <span className="text-lg">{match.teamB.flag}</span>
                           </div>
                           {isCorrect ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                            <CheckCircle2 className="w-4 h-4 text-cdc-red" />
                           ) : (
                             <XCircle className="w-4 h-4 text-rose-500" />
                           )}
@@ -124,7 +124,7 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
                   </div>
                   <div className="flex items-center space-x-3">
                     {isCorrect ? (
-                      <div className="flex items-center space-x-1 bg-emerald-50 text-emerald-600 px-2 py-1 rounded-lg">
+                      <div className="flex items-center space-x-1 bg-cdc-red/5 text-cdc-red px-2 py-1 rounded-lg">
                         <CheckCircle2 className="w-3 h-3" />
                         <span className="text-[10px] font-black uppercase tracking-tighter">Correct</span>
                       </div>
@@ -145,7 +145,7 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
         <section className="space-y-3 pb-8">
           <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 px-2">The Grand Final Result</h3>
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-            <div className="bg-indigo-600 p-4 text-white">
+            <div className="bg-cdc-blue p-4 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex flex-col items-center">
                   <span className="text-3xl">{finalMatch?.teamA?.flag}</span>
@@ -162,12 +162,12 @@ export default function ResultsReveal({ groupScores, knockoutPredictions, finalD
               </div>
             </div>
             <div className="p-4 space-y-3">
-              <div className="flex items-center justify-between p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+              <div className="flex items-center justify-between p-3 bg-cdc-red/5 rounded-xl border border-cdc-red/10">
                 <div className="flex items-center space-x-3">
-                  <Trophy className="w-5 h-5 text-emerald-600" />
+                  <Trophy className="w-5 h-5 text-cdc-red" />
                   <span className="text-sm font-bold text-slate-700">Champion Prediction</span>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                <CheckCircle2 className="w-5 h-5 text-cdc-red" />
               </div>
               <div className="flex items-center justify-between p-3 bg-rose-50 rounded-xl border border-rose-100">
                 <div className="flex items-center space-x-3">

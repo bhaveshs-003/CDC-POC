@@ -21,14 +21,14 @@ export default function Dashboard({ onStart }: DashboardProps) {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200"
+            className="w-16 h-16 bg-cdc-blue rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-cdc-blue/20"
           >
             <Trophy className="text-white w-8 h-8" />
           </motion.div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-            FIFA World Cup 2026 – Prediction Challenge
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 leading-tight">
+            CDC Match Prediction Game
           </h1>
-          <p className="text-slate-500 font-medium">48 Teams · 104 Matches</p>
+          <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Club Development Circle</p>
         </div>
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-4">
@@ -37,24 +37,24 @@ export default function Dashboard({ onStart }: DashboardProps) {
               <Calendar className="text-slate-400 w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-bold">Submission Deadline</p>
-              <p className="text-sm font-semibold text-slate-700">March 1, 2026 – 18:00 UTC</p>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider font-black">Submission Deadline</p>
+              <p className="text-sm font-bold text-slate-700">March 1, 2026 – 18:00 UTC</p>
             </div>
           </div>
           <div className="flex items-center justify-between pt-2 border-t border-slate-50">
-            <span className="text-sm font-medium text-slate-600">Status</span>
-            <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full uppercase tracking-wide">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Status</span>
+            <span className="px-3 py-1 bg-cdc-red/10 text-cdc-red text-[10px] font-black rounded-full uppercase tracking-widest">
               Predictions Open
             </span>
           </div>
         </div>
 
-        <div className="bg-indigo-50 rounded-2xl p-6 border border-indigo-100">
+        <div className="bg-cdc-blue/5 rounded-2xl p-6 border border-cdc-blue/10">
           <div className="flex items-start space-x-4">
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 shadow-sm">
-              <Users className="text-indigo-600 w-5 h-5" />
+              <Users className="text-cdc-blue w-5 h-5" />
             </div>
-            <p className="text-sm text-indigo-900 leading-relaxed">
+            <p className="text-sm text-cdc-blue/80 leading-relaxed font-medium">
               Predict every match from the group stage to the final. Once you make a choice, it's locked forever.
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function Dashboard({ onStart }: DashboardProps) {
       <div className="pt-8">
         <button
           onClick={onStart}
-          className="w-full bg-indigo-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-100 tap-target hover:bg-indigo-700"
+          className="w-full bg-cdc-blue text-white font-black py-4 rounded-2xl shadow-lg shadow-cdc-blue/20 tap-target hover:bg-cdc-blue/90 uppercase tracking-widest"
         >
           Start Prediction
         </button>

@@ -19,7 +19,7 @@ export default function WaitingScreen({ submittedAt }: WaitingScreenProps) {
           <motion.div
             animate={{ scale: [1, 1.1, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-24 h-24 bg-indigo-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-indigo-200"
+            className="w-24 h-24 bg-cdc-blue rounded-3xl flex items-center justify-center shadow-2xl shadow-cdc-blue/20"
           >
             <Lock className="text-white w-10 h-10" />
           </motion.div>
@@ -27,15 +27,15 @@ export default function WaitingScreen({ submittedAt }: WaitingScreenProps) {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.5 }}
-            className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full border-4 border-slate-50 flex items-center justify-center"
+            className="absolute -top-2 -right-2 w-8 h-8 bg-cdc-red rounded-full border-4 border-slate-50 flex items-center justify-center"
           >
             <ShieldCheck className="text-white w-4 h-4" />
           </motion.div>
         </div>
 
         <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 leading-tight">
-            Let’s Wait for the Results
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 leading-tight">
+            CDC Match Prediction Game
           </h1>
           <p className="text-slate-500 font-medium leading-relaxed max-w-xs mx-auto">
             Your predictions are locked. Results will be revealed after the tournament concludes.
@@ -53,7 +53,7 @@ export default function WaitingScreen({ submittedAt }: WaitingScreenProps) {
                 <p className="text-sm font-bold text-slate-700">{submittedAt}</p>
               </div>
             </div>
-            <div className="px-3 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-black uppercase tracking-widest rounded-full">
+            <div className="px-3 py-1 bg-cdc-blue/5 text-cdc-blue text-[10px] font-black uppercase tracking-widest rounded-full">
               Locked
             </div>
           </div>
@@ -61,8 +61,8 @@ export default function WaitingScreen({ submittedAt }: WaitingScreenProps) {
       </div>
 
       <div className="pt-8 text-center">
-        <p className="text-xs text-slate-400 font-medium">
-          FIFA World Cup 2026 Prediction Challenge POC
+        <p className="text-xs text-slate-400 font-medium uppercase tracking-widest">
+          Club Development Circle
         </p>
       </div>
     </motion.div>

@@ -77,7 +77,7 @@ export default function KnockoutStage({
         <button
           disabled={!isCompleted}
           onClick={onContinue}
-          className="w-full bg-indigo-600 disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-100 tap-target transition-all"
+          className="w-full bg-cdc-blue disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-cdc-blue/20 tap-target transition-all"
         >
           {currentStage === 'Final' ? 'Review & Submit' : `Continue to ${
             currentStage === 'R32' ? 'Round of 16' : 
@@ -146,12 +146,12 @@ function KnockoutTeamButton({
       onClick={onClick}
       className={`
         w-full px-4 py-4 flex items-center justify-between transition-all rounded-xl
-        ${isSelected ? 'bg-indigo-50' : 'bg-transparent'}
+        ${isSelected ? 'bg-cdc-blue/5' : 'bg-transparent'}
       `}
     >
       <div className="flex items-center space-x-3">
         <span className="text-2xl">{team?.flag || '🏳️'}</span>
-        <span className={`font-bold transition-colors ${isSelected ? 'text-indigo-600' : isOpponentSelected ? 'text-slate-300' : 'text-slate-700'}`}>
+        <span className={`font-bold transition-colors ${isSelected ? 'text-cdc-blue' : isOpponentSelected ? 'text-slate-300' : 'text-slate-700'}`}>
           {team?.name || 'TBD'}
         </span>
       </div>
@@ -160,7 +160,7 @@ function KnockoutTeamButton({
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="flex items-center space-x-1 bg-indigo-600 text-white px-2 py-1 rounded-lg"
+            className="flex items-center space-x-1 bg-cdc-blue text-white px-2 py-1 rounded-lg"
           >
             <Lock className="w-3 h-3" />
             <span className="text-[10px] font-black uppercase tracking-tighter">Winner</span>

@@ -8,10 +8,11 @@ interface GroupStageProps {
   scores: Record<string, { scoreA: number; scoreB: number }>;
   onPredict: (matchId: string, scoreA: number, scoreB: number) => void;
   onContinue: () => void;
+  onSkip?: () => void;
   key?: React.Key;
 }
 
-export default function GroupStage({ scores, onPredict, onContinue }: GroupStageProps) {
+export default function GroupStage({ scores, onPredict, onContinue, onSkip }: GroupStageProps) {
   const [expandedGroup, setExpandedGroup] = useState<string | null>(GROUPS[0].id);
 
   const completedCount = useMemo(() => {
@@ -36,14 +37,14 @@ export default function GroupStage({ scores, onPredict, onContinue }: GroupStage
             <p className="text-xs text-slate-400 font-medium">{completedCount} of {totalMatches} Matches Completed</p>
           </div>
           <div className="text-right">
-            <span className="text-sm font-bold text-indigo-600">{Math.round(progress)}%</span>
+            <span className="text-sm font-bold text-cdc-blue">{Math.round(progress)}%</span>
           </div>
         </div>
         <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
-            className="h-full bg-indigo-600"
+            className="h-full bg-cdc-blue"
           />
         </div>
       </div>
@@ -64,13 +65,21 @@ export default function GroupStage({ scores, onPredict, onContinue }: GroupStage
       </div>
 
       {/* Sticky Footer */}
-      <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent">
+      <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent space-y-3">
+        {onSkip && completedCount < totalMatches && (
+          <button
+            onClick={onSkip}
+            className="w-full bg-amber-500 text-white font-bold py-2 rounded-xl shadow-md shadow-amber-100 tap-target transition-all text-xs uppercase tracking-widest"
+          >
+            Admin's Skip (Complete Group Stage)
+          </button>
+        )}
         <button
           disabled={completedCount < totalMatches}
           onClick={onContinue}
-          className="w-full bg-indigo-600 disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-100 tap-target transition-all"
+          className="w-full bg-cdc-blue disabled:bg-slate-300 text-white font-bold py-4 rounded-2xl shadow-lg shadow-cdc-blue/20 tap-target transition-all"
         >
-          Continue to Knockouts
+          Continue to Summary
         </button>
       </div>
     </motion.div>
@@ -107,7 +116,7 @@ function GroupAccordion({
         </div>
         <div className="flex items-center space-x-3">
           {groupCompletedCount === 6 && (
-            <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+            <CheckCircle2 className="w-5 h-5 text-cdc-red" />
           )}
           <span className="text-xs font-bold text-slate-400">{groupCompletedCount}/6</span>
           <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -212,7 +221,7 @@ function MatchCard({
       {!score && (
         <button
           onClick={() => onPredict(sA, sB)}
-          className="w-full bg-indigo-600 border border-indigo-600 text-white font-bold py-2 rounded-xl text-xs uppercase tracking-widest transition-all shadow-sm shadow-indigo-100 active:scale-[0.98]"
+          className="w-full bg-cdc-blue border border-cdc-blue text-white font-bold py-2 rounded-xl text-xs uppercase tracking-widest transition-all shadow-sm shadow-cdc-blue/10 active:scale-[0.98]"
         >
           Lock Result
         </button>
